@@ -36,9 +36,9 @@ bot.on("messageCreate", (msg) => { // When a message is created
                     const card = cards.find(card => card.idol.name === IDOL);
 
                     return bot.createMessage(msg.channel.id,
-                        "👻 🎃 👻 🎃 👻 🎃 👻 \n" +
-                        "🎃 🎃 ***TREAT!!!*** 🎃 🎃 \n" +
-                        "🎃 👻 🎃 👻 🎃 👻 🎃 \n" +
+                        "🍬 🍫 🍬 🍫 🍬 🍫 🍬 🍫 🍬\n" +
+                        "🍫 🍬 ***TREAT!!!*** 🍬 🍫 \n" +
+                        "🍬 🍫 🍬 🍫 🍬 🍫 🍬 🍫 🍬\n" +
                         msg.author.mention + " have received the TRICKED!!! role \n" +
                         "http:" + card.card_idolized_image + "\n")
                         // Add Them to a role

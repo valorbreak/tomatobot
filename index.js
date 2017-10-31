@@ -3,9 +3,14 @@
 const request = require("request-promise");
 const Eris = require("eris");
 const config = require("./config.json");
+const Command = require("./command");
 
 // Using basic commands
-const bot = new Eris(config.token);
+const bot = new Eris.CommandClient(config.token, {}, {
+    name: "Tomato",
+    prefix: "nico.",
+    description: "Nani sore, Imi Wakanai"
+});
 
 bot.on("ready", () => { // When the bot is ready
     console.log("Ready!"); // Log "Ready!"
@@ -19,13 +24,19 @@ const IDOL = "Yazawa Nico";
 const HALLOWEEN_CARDS = "http://schoolido.lu/api/cards?translated_collection=Halloween&page_size=50";
 const COMMAND = "NicoNii";
 
+const command = new Command(bot);
+
 bot.on("messageCreate", (msg) => { // When a message is created
 
-    if(msg.channel.id !== config.channel_id) {
+    if(!config.channel_ids.includes(msg.channel.id)) {
         return;
     }
 
-    if(msg.content.toLowerCase().search(COMMAND.toLowerCase()) >= 0) {
+    if(msg.file && msg.channel.id === config.channel_ids[1]) {
+        return bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Holiday Event - Tricked!!!");
+    }
+
+    if(msg.content.toLowerCase().search(COMMAND.toLowerCase()) >= 0 && msg.channel.id === config.channel_ids[0]) {
 
         request.get(HALLOWEEN_CARDS)
             .then(data => {
@@ -55,7 +66,7 @@ bot.on("messageCreate", (msg) => { // When a message is created
                 }
             })
             .catch((err) => {
-                console.log(err,'error');
+                console.log(err,"error");
                 return bot.createMessage(msg.channel.id, "Please try again later")
             })
 

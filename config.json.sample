@@ -1,6 +1,6 @@
 {
   "token": "",
-  "channel_id": "",
+  "channel_ids": [],
   "guild_id": "",
   "role_id": ""
 }

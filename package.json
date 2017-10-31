@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "pm-start": "git pull origin master && pm2 start npm --name \"tomatobot\" -- start",
+    "pm-restart": "git pull origin master && npm run build && pm2 restart tomatobot",
   },
   "author": "",
   "license": "ISC",

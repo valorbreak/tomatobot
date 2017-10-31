@@ -18,7 +18,8 @@ bot.on("ready", () => { // When the bot is ready
 
 // Trick or Treat Event Game
 // Getting Nico is a Treat and will provide a role
-const ROLE_ID = config.role_id;
+const TRICK_ROLE_ID = config.role_ids[0];
+const TREAT_ROLE_ID = config.role_ids[1];
 const GUILD_ID = config.guild_id;
 const IDOL = "Yazawa Nico";
 const HALLOWEEN_CARDS = "http://schoolido.lu/api/cards?translated_collection=Halloween&page_size=50";
@@ -32,8 +33,8 @@ bot.on("messageCreate", (msg) => { // When a message is created
         return;
     }
 
-    if(msg.file && msg.channel.id === config.channel_ids[1]) {
-        return bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Holiday Event - Tricked!!!");
+    if(msg.attachments && msg.attachments.length > 0 && msg.channel.id === config.channel_ids[1]) {
+        return bot.addGuildMemberRole(GUILD_ID, msg.author.id, TREAT_ROLE_ID, "Holiday Event - Treat!!!");
     }
 
     if(msg.content.toLowerCase().search(COMMAND.toLowerCase()) >= 0 && msg.channel.id === config.channel_ids[0]) {
@@ -52,7 +53,7 @@ bot.on("messageCreate", (msg) => { // When a message is created
                         (Math.random() >= 0.5 ? "http://i.schoolido.lu/c/909idolizedNico.png\n" : "http://i.schoolido.lu/c/425idolizedNico.png\n")
                         )
                         // Add Them to a role
-                        .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Holiday Event - Tricked!!!"))
+                        .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, TRICK_ROLE_ID, "Holiday Event - Tricked!!!"))
 
                 } else {
                     const filteredCards = cards.filter(card => card.idol.name !== IDOL);

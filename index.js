@@ -31,9 +31,6 @@ bot.on("messageCreate", (msg) => { // When a message is created
             .then(data => {
                 const cards = JSON.parse(data).results;
 
-                console.log(msg.channel.id,'channelID');
-                console.log(msg.author.id,'channelID');
-
                 // GET nico
                 if(randomIntFromInterval(0,cards.length) === 0) {
                     const card = cards.find(card => card.idol.name === IDOL);

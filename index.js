@@ -38,7 +38,7 @@ bot.on("messageCreate", (msg) => { // When a message is created
                         "🍫 🍬 ***TREAT!!!*** 🍬 🍫 \n" +
                         "🍬 🍫 🍬 🍫 🍬 🍫 \n" +
                         msg.author.mention + " have received the TRICKED!!! role \n" +
-                        "http://i.schoolido.lu/c/909idolizedNico.png\n")
+                        Math.random() >= 0.5 ? "http://i.schoolido.lu/c/909idolizedNico.png\n" : "http://i.schoolido.lu/c/425idolizedNico.png\n")
                         // Add Them to a role
                         .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Holiday Event - Tricked!!!"))
 

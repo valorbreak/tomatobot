@@ -25,7 +25,7 @@ bot.on("messageCreate", (msg) => { // When a message is created
         return;
     }
 
-    if(msg.content.toLowerCase().search(COMMAND.toLowerCase())) {
+    if(msg.content.toLowerCase().search(COMMAND.toLowerCase()) === 0) {
 
         request.get(HALLOWEEN_CARDS)
             .then(data => {

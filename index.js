@@ -70,5 +70,5 @@ bot.on("messageCreate", (msg) => { // When a message is created
 bot.connect(); // Get the bot to connect to Discord
 
 function randomIntFromInterval(min,max) {
-    return Math.floor(Math.random()*(max-min+1)+min);
+    return Math.floor(Math.random()*(max-min)+min);
 }

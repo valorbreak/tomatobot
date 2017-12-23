@@ -2,14 +2,16 @@
 
 class Command {
     constructor(bot) {
+        this.bot = bot;
+    }
 
+    listen() {
+        const bot = this.bot;
         bot.registerCommand("nani", (msg, args) => {
-            return " sore, imi wakanai";
+            return "nani ???, imi wakanai";
         }, {
             description: "???"
         });
-
-
     }
 }
 

@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eris": "^0.8.1",
+    "eris": "^0.8.2",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }

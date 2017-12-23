@@ -40,6 +40,7 @@ class Christmas {
         // Hard Coded pls change this
         const CHANNEL_ID = config.channel_ids.christmas_nico;
         const TREAT_ROLE_ID = config.role_ids.nico_nico_naughty;
+        const GUILD_ID = config.guild_id;
 
         if(msg.attachments && msg.attachments.length > 0 && msg.channel.id === CHANNEL_ID) {
             return bot.addGuildMemberRole(GUILD_ID, msg.author.id, TREAT_ROLE_ID, "Holiday Event - nico nico naughty!!!");

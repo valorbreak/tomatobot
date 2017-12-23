@@ -38,6 +38,7 @@ class Halloween {
         const bot = this.bot;
         const config = this.config;
         // Hard Coded pls change this
+        const GUILD_ID = config.guild_id;
         const CHANNEL_ID = config.channel_ids.halloween_nico;
         const TREAT_ROLE_ID = config.role_ids.halloween_nico;
 

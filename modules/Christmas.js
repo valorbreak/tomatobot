@@ -60,7 +60,7 @@ class Christmas {
                     const cards = JSON.parse(data).results;
 
                     // GET nico
-                    if(Math.random() <= 1.0) {
+                    if(Math.random() <= 0.08) {
                         const goodCards = [
                             cards.find(card => card.idol.name === "Nishikino Maki" && card.rarity === "UR").card_idolized_image,
                             cards.find(card => card.idol.name === "Yazawa Nico").card_idolized_image,

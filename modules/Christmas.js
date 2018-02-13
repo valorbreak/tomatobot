@@ -39,11 +39,11 @@ class Christmas {
         const config = this.config;
         // Hard Coded pls change this
         const CHANNEL_ID = config.channel_ids.christmas_nico;
-        const TREAT_ROLE_ID = config.role_ids.nico_nico_naughty;
+        const ROLE_ID = config.role_ids.nico_nico_naughty;
         const GUILD_ID = config.guild_id;
 
         if(msg.attachments && msg.attachments.length > 0 && msg.channel.id === CHANNEL_ID) {
-            return bot.addGuildMemberRole(GUILD_ID, msg.author.id, TREAT_ROLE_ID, "Holiday Event - nico nico naughty!!!");
+            return bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Holiday Event - nico nico naughty!!!");
         }
     }
 
@@ -69,12 +69,14 @@ class Christmas {
                             cards.find(card => card.idol.name === "Kurosawa Ruby").card_idolized_image,
                         ];
 
+                        const randomGoodCard = Christmas.getRandomObject(goodCards);
+
                         return bot.createMessage(msg.channel.id,
                             ":christmas_tree: ⭐ :christmas_tree: ⭐ :christmas_tree: ⭐ :christmas_tree: ⭐\n" +
                             "⭐ ⭐ ***You got a Present!!!*** ⭐ ⭐ \n" +
                             "⭐ :christmas_tree: ⭐ :christmas_tree: ⭐ :christmas_tree: ⭐ :christmas_tree:\n" +
                             msg.author.mention + " have received the nico nico nice!!! role \n" +
-                            "https:" + Christmas.getRandomObject(goodCards) + "\n"
+                            "https:" + randomGoodCard + "\n"
                         )
                         // Add Them to a role
                         .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Christmas Event - Nico Nico Naughty!!!"))

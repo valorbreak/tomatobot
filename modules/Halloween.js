@@ -40,10 +40,10 @@ class Halloween {
         // Hard Coded pls change this
         const GUILD_ID = config.guild_id;
         const CHANNEL_ID = config.channel_ids.halloween_nico;
-        const TREAT_ROLE_ID = config.role_ids.halloween_nico;
+        const ROLE_ID = config.role_ids.halloween_nico;
 
         if(msg.attachments && msg.attachments.length > 0 && msg.channel.id === CHANNEL_ID) {
-            return bot.addGuildMemberRole(GUILD_ID, msg.author.id, TREAT_ROLE_ID, "Holiday Event - Treat!!!");
+            return bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Holiday Event - Treat!!!");
         }
     }
 

@@ -70,8 +70,10 @@ class Valentines {
 
 
       if(msg.content.toLowerCase().search(COMMAND.toLowerCase()) >= 0 && msg.channel.id === CHANNEL_ID){
-        var ship = msg.content.split(" ");
-        switch(ship[1].toLowerCase()){
+        let shipArray = msg.content.split(" ");
+        const ship = shipArray[1] ? shipArray[1].toLowerCase() : null;
+
+        switch(ship){
           case "nicomaki":
           this.purgeOtherRoles(msg.author.id);
           return bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID0, "Nico went on a date with Maki!").then(bot.createMessage(msg.channel.id, "🍅🍫Nico spent Valentine's Day with Maki!🍫🍅"));

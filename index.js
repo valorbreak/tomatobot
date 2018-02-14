@@ -10,7 +10,7 @@ const diaValentines = require("./modules/DiaValentines");
 
 // Using basic commands
 const bot = new Eris.CommandClient(config.token, {}, {
-    name: "Tomato",
+    name: "tomatobot",
     prefix: "nico."
 });
 

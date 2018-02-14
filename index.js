@@ -6,10 +6,11 @@ const Command = require("./modules/Command");
 const Halloween = require("./modules/Halloween");
 const Christmas = require("./modules/Christmas");
 const Valentines = require("./modules/Valentines");
+const diaValentines = require("./modules/DiaValentines");
 
 // Using basic commands
 const bot = new Eris.CommandClient(config.token, {}, {
-    name: "tomatobot",
+    name: "Tomato",
     prefix: "nico."
 });
 
@@ -28,5 +29,8 @@ christmas.listen();
 
 const valentines = new Valentines(bot,config.valentines);
 valentines.listen();
+
+const diavday = new diaValentines(bot, config.diavalentines);
+diavday.listen();
 
 bot.connect(); // Get the bot to connect to Discord

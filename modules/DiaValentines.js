@@ -2,7 +2,7 @@
 
 const COMMAND = "DiaHappy";
 
-class diaValentines {
+class Valentines {
     constructor(bot, config){
         this.bot = bot;
         this.config = config;
@@ -113,7 +113,7 @@ class diaValentines {
                         );
                  case "diaruby":
                      return this.purgeOtherRoles(msg.author.id)
-                     .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID7, "Dia stayed home with Ruby!")
+                     .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID8, "Dia stayed home with Ruby!")
                      .then(() => bot.createMessage(msg.channel.id, "🍭🍫Dia stayed home with Ruby!🍫🍭"))
                         );
 

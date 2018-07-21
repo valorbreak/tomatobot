@@ -139,6 +139,7 @@ class EmoteBreaker {
             // 7. "E-E-E-Emote Breaker!!!" must be the exact word to break the chain, without the quotes
             if(store.get().length === EMOTE_BREAK_LIMIT) {
                 // Assign Role to User
+                // 8. emotebreaker gets a role
                 bot.createMessage(msg.channel.id, "<:nicoparty:470220069075681280>")
                     .then(() => bot.createMessage(msg.channel.id, "msg.author.mention breaker!"))
                     .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Birthday Event - Happy Birthday Nico!!!"))

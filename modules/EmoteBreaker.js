@@ -141,7 +141,7 @@ class EmoteBreaker {
                 // Assign Role to User
                 // 8. emotebreaker gets a role
                 bot.createMessage(msg.channel.id, "<:nicoparty:470220069075681280>")
-                    .then(() => bot.createMessage(msg.channel.id, "msg.author.mention breaker!"))
+                    .then(() => bot.createMessage(msg.channel.id, msg.author.mention + " breaker!"))
                     .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Birthday Event - Happy Birthday Nico!!!"))
                 // Then Reset
                 store.reset();
@@ -157,7 +157,7 @@ class EmoteBreaker {
                 userId: msg.author.id
             });
 
-            bot.editStatus("Emote Count: " + store.get().length);
+            bot.editNickname(GUILD_ID, "tomato-bot: emote-count: " + store.get().length );
 
             // 3. an emote can't be repeated consecutively
             if(store.isConsecutive('emote', EMOTE_CONSECUTIVE_LIMIT)) {

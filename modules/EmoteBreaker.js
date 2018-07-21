@@ -111,8 +111,10 @@ class EmoteBreaker {
         // Configuration
         const ROLE_ID = config.role_ids.nico_emotebreaker;
         const GUILD_ID = config.guild_id;
-        const CONSECUTIVE_LIMIT = config.settings.CONSECUTIVE_LIMIT;
+
         const EMOTE_BREAK_LIMIT = config.settings.EMOTE_BREAK_LIMIT;
+        const EMOTE_CONSECUTIVE_LIMIT = config.settings.EMOTE_CONSECUTIVE_LIMIT;
+        const USER_CONSECUTIVE_LIMIT = config.settings.USER_CONSECUTIVE_LIMIT;
 
         const emojis = msg.channel.guild.emojis.map(emoji => emoji.name);
         const store = this.store;
@@ -148,13 +150,13 @@ class EmoteBreaker {
 
             // Reset first before adding
             // 3. an emote can't be repeated consecutively
-            if(!store.isNonconsecutive('emote', CONSECUTIVE_LIMIT)) {
+            if(!store.isNonconsecutive('emote', EMOTE_CONSECUTIVE_LIMIT)) {
                 store.reset();
                 console.log('RESET');
             }
 
             // 4. a user can't post after immediately after posting a emoji
-            if(!store.isNonconsecutive('userId', CONSECUTIVE_LIMIT)) {
+            if(!store.isNonconsecutive('userId', USER_CONSECUTIVE_LIMIT)) {
                 store.reset();
                 console.log('RESET');
             }

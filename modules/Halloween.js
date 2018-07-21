@@ -1,5 +1,3 @@
-"use strict";
-
 const request = require("request-promise");
 
 // Trick or Treat Event Game

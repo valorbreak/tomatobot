@@ -1,5 +1,3 @@
-"use strict";
-
 const request = require("request-promise");
 
 // Christmas Event Game

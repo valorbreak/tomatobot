@@ -1,8 +1,6 @@
-"use strict";
-
 const COMMAND = "DiaHappy";
 
-class Valentines {
+class diaValentines {
     constructor(bot, config){
         this.bot = bot;
         this.config = config;

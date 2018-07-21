@@ -1,5 +1,3 @@
-"use strict";
-
 const COMMAND = "NicoNii";
 
 class Valentines {

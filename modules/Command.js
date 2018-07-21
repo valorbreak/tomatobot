@@ -1,5 +1,3 @@
-"use strict";
-
 class Command {
     constructor(bot) {
         this.bot = bot;

@@ -11,9 +11,8 @@ class EmoteStore {
 
     isConsecutive(field, amount) {
         const localStack = [];
-
+        let consecutive = false;
         this.stack.forEach((value) => {
-
             // Reset the stack depending on amount
             if(localStack.length === amount) {
                 localStack.length = 0;
@@ -21,52 +20,13 @@ class EmoteStore {
 
             if(!localStack.includes(value[field])) {
                 localStack.push(value[field]);
-                console.log(localStack,'localStack');
             } else {
-                console.log(localStack,'false');
-                return false;
-            }
-        });
-
-        console.log(this.stack,'stac');
-        return this.stack.every((value) => {
-
-            console.log(value,'value');
-            // Reset the stack depending on amount
-            if(localStack.length === amount) {
                 localStack.length = 0;
-            }
-
-            if(!localStack.includes(value[field])) {
-                localStack.push(value[field]);
-                console.log(localStack,field);
-                return false;
-            } else {
-                return true;
-            }
-        });
-    }
-
-    isNonconsecutive(field, amount) {
-        const localStack = [];
-
-        this.stack.forEach((value) => {
-
-            // Reset the stack depending on amount
-            if(localStack.length === amount) {
-                localStack.length = 0;
-            }
-
-            if(!localStack.includes(value[field])) {
-                localStack.push(value[field]);
-                console.log(localStack,'localStack');
-            } else {
-                console.log(localStack,'false');
-                return false;
+                consecutive = true;
             }
         });
 
-        return true;
+        return consecutive;
     }
 
     add(data) {
@@ -201,10 +161,10 @@ class EmoteBreaker {
                 store.reset();
             }
 
-            // // 4. a user can't post after immediately after posting a emoji
-            // if(store.isConsecutive('userId', USER_CONSECUTIVE_LIMIT)) {
-            //     store.reset();
-            // }
+            // 4. a user can't post after immediately after posting a emote
+            if(store.isConsecutive('userId', USER_CONSECUTIVE_LIMIT)) {
+                store.reset();
+            }
 
         }
 

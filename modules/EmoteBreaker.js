@@ -171,6 +171,8 @@ class EmoteBreaker {
 
         }
 
+        bot.editNickname(GUILD_ID, "tomato: " + store.get().length + " emotes");
+
     }
 }
 

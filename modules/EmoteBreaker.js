@@ -9,8 +9,9 @@ class EmoteStore {
         return this.stack;
     }
 
-    isNonconsecutive(field, amount) {
+    isConsecutive(field, amount) {
         const localStack = [];
+
         this.stack.forEach((value) => {
 
             // Reset the stack depending on amount
@@ -19,8 +20,48 @@ class EmoteStore {
             }
 
             if(!localStack.includes(value[field])) {
-                localStack.push(value[field])
+                localStack.push(value[field]);
+                console.log(localStack,'localStack');
             } else {
+                console.log(localStack,'false');
+                return false;
+            }
+        });
+
+        console.log(this.stack,'stac');
+        return this.stack.every((value) => {
+
+            console.log(value,'value');
+            // Reset the stack depending on amount
+            if(localStack.length === amount) {
+                localStack.length = 0;
+            }
+
+            if(!localStack.includes(value[field])) {
+                localStack.push(value[field]);
+                console.log(localStack,field);
+                return false;
+            } else {
+                return true;
+            }
+        });
+    }
+
+    isNonconsecutive(field, amount) {
+        const localStack = [];
+
+        this.stack.forEach((value) => {
+
+            // Reset the stack depending on amount
+            if(localStack.length === amount) {
+                localStack.length = 0;
+            }
+
+            if(!localStack.includes(value[field])) {
+                localStack.push(value[field]);
+                console.log(localStack,'localStack');
+            } else {
+                console.log(localStack,'false');
                 return false;
             }
         });
@@ -30,11 +71,11 @@ class EmoteStore {
 
     add(data) {
         this.stack.push(data);
-        console.log("emote added to stack: " + data.emote);
+        console.log("Emote added to stack: " + data.emote);
     }
 
     reset() {
-        this.stack = [];
+        this.stack.length = 0;
         console.log('RESET');
     }
 
@@ -148,24 +189,23 @@ class EmoteBreaker {
             }
         } else {
 
-            // Reset first before adding
-            // 3. an emote can't be repeated consecutively
-            if(!store.isNonconsecutive('emote', EMOTE_CONSECUTIVE_LIMIT)) {
-                store.reset();
-                console.log('RESET');
-            }
-
-            // 4. a user can't post after immediately after posting a emoji
-            if(!store.isNonconsecutive('userId', USER_CONSECUTIVE_LIMIT)) {
-                store.reset();
-                console.log('RESET');
-            }
 
             // Add emoji to stack
             store.add({
                 emote: userEmote,
-                userId: msg.author_id
+                userId: msg.author.id
             });
+
+            // 3. an emote can't be repeated consecutively
+            if(store.isConsecutive('emote', EMOTE_CONSECUTIVE_LIMIT)) {
+                store.reset();
+            }
+
+            // // 4. a user can't post after immediately after posting a emoji
+            // if(store.isConsecutive('userId', USER_CONSECUTIVE_LIMIT)) {
+            //     store.reset();
+            // }
+
         }
 
     }

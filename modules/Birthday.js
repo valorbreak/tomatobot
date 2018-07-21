@@ -95,7 +95,7 @@ class Birthday {
         let rarity = null;
 
         switch (true) {
-            case rate >= 90:
+            case rate >= 95:
                 rarity = "UR";
                 break;
             case rate >= 75:

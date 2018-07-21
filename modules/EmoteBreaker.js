@@ -157,8 +157,6 @@ class EmoteBreaker {
                 userId: msg.author.id
             });
 
-            bot.editNickname(GUILD_ID, "tomato-bot: emote-count: " + store.get().length );
-
             // 3. an emote can't be repeated consecutively
             if(store.isConsecutive('emote', EMOTE_CONSECUTIVE_LIMIT)) {
                 store.reset();

@@ -10,12 +10,12 @@ class EmoteStore {
     }
 
     isConsecutive(field, amount) {
-        const localStack = [];
+        let localStack = [];
         let consecutive = false;
         this.stack.forEach((value) => {
             // Reset the stack depending on amount
             if(localStack.length === amount) {
-                localStack.length = 0;
+                localStack = localStack.slice(1);
             }
 
             if(!localStack.includes(value[field])) {
@@ -149,9 +149,7 @@ class EmoteBreaker {
                 store.reset();
             }
         } else {
-
-
-            // Add emoji to stack
+            // Add emote to stack
             store.add({
                 emote: userEmote,
                 userId: msg.author.id
@@ -169,6 +167,7 @@ class EmoteBreaker {
 
         }
 
+        // Add emote status to nickname
         bot.editNickname(GUILD_ID, "tomato: " + store.get().length + " emotes");
 
     }

@@ -66,7 +66,7 @@ class Birthday {
                         "<:NicoNii:230141219399925760> <:NicoNii:230141219399925760> ***Congratulations you got a UR!!!*** <:NicoNii:230141219399925760> <:NicoNii:230141219399925760> \n" +
                         "<:NicoNii:230141219399925760> <:nicoparty:470220069075681280> <:NicoNii:230141219399925760> <:nicoparty:470220069075681280> <:NicoNii:230141219399925760> <:nicoparty:470220069075681280> <:NicoNii:230141219399925760> <:nicoparty:470220069075681280>\n" +
                         msg.author.mention + " have received the <:nicoparty:470220069075681280> role \n" +
-                        "https:" + (Math.random() >= 0.5 ? randomGoodCard.card_idolized_image : randomGoodCard.card_image)  + "\n"
+                        "https:" + ((randomGoodCard.card_idolized_image && randomGoodCard.card_image) ? (Math.random() >= 0.5 ? randomGoodCard.card_idolized_image : randomGoodCard.card_image) : (randomGoodCard.card_idolized_image || randomGoodCard.card_image))  + "\n"
                     )
                     // Add Them to a role
                         .then(() => bot.addGuildMemberRole(GUILD_ID, msg.author.id, ROLE_ID, "Birthday Event - Happy Birthday Nico!!!"))

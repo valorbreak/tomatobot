@@ -71,15 +71,27 @@ class TrickOrChristmas {
         if( christmasEmotes.includes(userEmote) ||
             christmasEmotes.find(emote => msg.content.includes(emote))
         ) {
-            this.index--;
+            this.decreaseIndex();
         } else if(
             halloweenEmotes.includes(userEmote) ||
             halloweenEmotes.find(emote => msg.content.includes(emote))
         ) {
-            this.index++;
+            this.increaseIndex();
         }
 
         this.updateStatus();
+    }
+
+    increaseIndex() {
+        if(this.index < this.gradient().length) {
+            this.index++;
+        }
+    }
+
+    decreaseIndex() {
+        if(this.index > 0) {
+            this.index--;
+        }
     }
 
     updateStatus() {

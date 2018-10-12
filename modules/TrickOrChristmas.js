@@ -83,7 +83,7 @@ class TrickOrChristmas {
     }
 
     increaseIndex() {
-        if(this.index < this.gradient().length) {
+        if(this.index < this.gradient().length - 1) {
             this.index++;
         }
     }

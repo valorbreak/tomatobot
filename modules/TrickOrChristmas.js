@@ -109,7 +109,7 @@ class TrickOrChristmas {
     message(index){
         const length = this.gradient().length;
         if(index === Math.floor(length / 2)) {
-            return "Tomato Bot";
+            return "Happy Holidays";
         } else if(index < Math.floor(length / 2)) {
             const offset = Math.floor(length / 2) - index;
             return `🎄 Merry Christmas!!! 🎄 - ${offset}`;

@@ -4,6 +4,7 @@ const Eris = require("eris");
 const config = require("./config.json");
 const Command = require("./modules/Command");
 const Halloween = require("./modules/Halloween");
+const TrickOrChristmas = require("./modules/TrickOrChristmas");
 const Christmas = require("./modules/Christmas");
 const Valentines = require("./modules/Valentines");
 const diaValentines = require("./modules/DiaValentines");
@@ -40,5 +41,8 @@ birthday.listen();
 
 const emoteBreaker = new EmoteBreaker(bot,config.emotebreaker);
 emoteBreaker.listen();
+
+const trickOrChristmas = new TrickOrChristmas(bot,config.treatOrChristmas);
+trickOrChristmas.listen();
 
 bot.connect(); // Get the bot to connect to Discord

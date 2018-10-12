@@ -1,0 +1,48 @@
+{
+  "christmas_emotes": [
+    "nicoPadoru",
+    "happyChristmas",
+    "🎄"
+  ],
+  "halloween_emotes": [
+    "🎃",
+    "🦃",
+    "🦇"
+  ],
+  "gradient": [
+    "FF1C1A",
+    "FF2A28",
+    "FF3836",
+    "FF4644",
+    "FF5453",
+    "FF6261",
+    "FF716F",
+    "FF7F7E",
+    "FF8D8C",
+    "FF9B9A",
+    "FFA9A9",
+    "FFB8B7",
+    "FFC6C5",
+    "FFD4D4",
+    "FFE2E2",
+    "FFF0F0",
+    "FFFFFF",
+    "FFF8EF",
+    "FFF1DF",
+    "FFEACF",
+    "FFE4BF",
+    "FFDDAF",
+    "FFD69F",
+    "FFCF8F",
+    "FFC97F",
+    "FFC26F",
+    "FFBB5F",
+    "FFB44F",
+    "FFAE3F",
+    "FFA72F",
+    "FFA01F",
+    "FF990F",
+    "FF9300"
+  ]
+}
+
